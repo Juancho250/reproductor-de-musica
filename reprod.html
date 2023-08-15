@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./styloreproductor.css">
+<style>
+  /* Estilos CSS (mismos estilos que antes) */
+</style>
+<title>Reproductor de Música</title>
+</head>
+<body>
+  <div class="music-player">
+    <div class="art-box">
+      <img src="./Assets/img/ACDC-Power-Up.jpg" alt="Carátula de la canción">
+      <img src="./Assets/img/Dance Monkey.jpg" alt="Carátula de la canción">
+      <img src="./Assets/img/Billi Jean.jpg" alt="Carátula de la canción">
+    </div>
+    <div class="controls-box">
+      <div class="song-title">Canción de ejemplo</div>
+      <div class="play-controls">
+        <button class="prev-button" disabled>⏮</button>
+        <button class="play-button" disabled>▶</button>
+        <button class="pause-button" disabled>❚❚</button>
+        <button class="next-button">⏭</button>
+      </div>
+      <div class="song-list">
+        <div class="song-list-item">Canción 1</div>
+        <div class="song-list-item">Canción 2</div>
+        <div class="song-list-item">Canción 3</div>
+        <!-- Agrega más canciones aquí -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const audio = new Audio(); // Crear un objeto de audio
+    const playButton = document.querySelector('.play-button');
+    const pauseButton = document.querySelector('.pause-button');
+    const prevButton = document.querySelector('.prev-button');
+    const nextButton = document.querySelector('.next-button');
+    const songListItems = document.querySelectorAll('.song-list-item');
+    const songTitle = document.querySelector('.song-title');
+    const songArtBox = document.querySelector('.art-box img');
+
+    let currentSong = 0;
+    let isPlaying = false;
+
+    function playSong() {
+      isPlaying = true;
+      playButton.disabled = true;
+      pauseButton.disabled = false;
+      audio.play(); // Reproducir la canción
+    }
+
+    function pauseSong() {
+      isPlaying = false;
+      playButton.disabled = false;
+      pauseButton.disabled = true;
+      audio.pause(); // Pausar la canción
+    }
+
+    function prevSong() {
+      // Lógica para retroceder a la canción anterior
+    }
+
+    function nextSong() {
+      // Lógica para avanzar a la siguiente canción
+    }
+
+    function selectSong(index) {
+  currentSong = index;
+  songTitle.textContent = `Canción ${index + 1}`;
+  const songListItem = songListItems[index];
+  const songSrc = songListItem.getAttribute('data-src');
+  
+  audio.src = songSrc;
+  playSong(); // Reproducir la nueva canción
+}
+
+    playButton.addEventListener('click', playSong);
+    pauseButton.addEventListener('click', pauseSong);
+    prevButton.addEventListener('click', prevSong);
+    nextButton.addEventListener('click', nextSong);
+
+    songListItems.forEach((item, index) => {
+      item.addEventListener('click', () => selectSong(index));
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Assets/css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <video id="video-background" src="Assets/video/(1066) Ultra High Definition 4K Neon Tunnel Screensaver - YouTube - Google Chrome 2023-08-15 18-20-19.mp4" autoplay muted loop>
+        </video>
+        <div id="pantallareproductor">
+            <button class="boton"><img id="img-lista" src="Assets/img/lista.png" alt=""></button>
+            <img src="" id="img-canciones" alt="">
+            <p id="nombre-cancion">Nombre de la Canción</p>
+            <input type="range" id="adelanto-barra" min="0" max="100" value="0">
+
+            <audio id="audioplayer" controls><source src=""></audio>
+            <nav>
+                <button class="boton btnRetroceder"><img src="Assets/img/retroceder.png" alt=""></button>
+                <button class="boton btnReproducirPausar"><img src="Assets/img/icons8-play-32.png" alt=""></button>
+                <button class="boton btnAdelantar"><img src="Assets/img/icons8-play-32.png" alt=""></button>
+            </nav>
+        </div>
+        <ul id="lista-canciones" class="hidden">
+
+        </ul>
+    </main>
+
+    <script src="Assets/js/funciones.js"></script>
+</body>
+</html>
